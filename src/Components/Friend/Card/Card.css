@@ -1,0 +1,35 @@
+/* Card Component for Friend List */
+.card {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card_image img {
+    border-radius: 50%;
+    border: 2px solid #fff;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 0.8rem;
+}
+
+.card_info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.card_info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #ccc;
+}

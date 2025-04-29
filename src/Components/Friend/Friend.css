@@ -1,0 +1,33 @@
+/* Friend container */
+/* Global Styles */
+
+.friend {
+    width: 80%;
+    margin: 1rem auto;
+    color: #fff;
+}
+
+.friend_box {
+    display: grid;
+    grid-template-columns: 1.4fr 3fr;
+    gap: 2rem;
+}
+
+/* Friend List (Left Side) */
+/*.friend_box_left {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 80vh;
+}*/
+
+/* Chat Container (Right Side) */
+/*
+.friend_box_right {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    height: 80vh;
+    overflow: hidden;
+}*/

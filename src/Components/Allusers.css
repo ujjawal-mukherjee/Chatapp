@@ -1,0 +1,147 @@
+/*.alluser_info {
+    width: 80%;
+    margin: 4rem auto;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+
+.alluser {
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    gap: 3rem;
+}
+
+
+.current_user {
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: medium;
+}
+    */
+/* General Styling */
+
+
+/* Heading Section */
+.page-transition {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alluser_info {
+    width: 80%;
+    margin: 4rem auto;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #f9a826;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.para {
+    text-align: center;
+    color: red;
+}
+
+/* Current User Section */
+.current_user {
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.current_user:hover {
+    transform: scale(1.02);
+}
+
+.current_user h2 {
+    color: #f9a826;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.current_user p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* User List Section */
+.alluser {
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* User Card Styling */
+.usercard {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(255, 149, 0, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.usercard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 149, 0, 0.4);
+}
+
+.usercard h3 {
+    font-size: 1.5rem;
+    color: #f9a826;
+    margin-bottom: 0.5rem;
+}
+
+.usercard p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Error Message Styling */
+.error {
+    text-align: center;
+    font-size: 1.2rem;
+    color: red;
+    margin-top: 1rem;
+}

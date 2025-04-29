@@ -1,0 +1,127 @@
+/* Global resets and base styles */
+/*body {
+    font-family: sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+*/
+/* Filter area container */
+.filter {
+    width: 80%;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* Main filter box with a dark, boxy look */
+.filter_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    /* Solid dark background */
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    /* Reduced radius for a box-like feel */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.filter_box:hover {
+    transform: translateY(-2px);
+}
+
+/* Left search box styling */
+.filter_box_left_search {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.filter_box_left_search:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Input styling within the search box */
+.filter_box_left_search input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    color: #fff;
+    width: 18rem;
+    font-size: 1rem;
+}
+
+/* Container for right-side buttons */
+.filter_box_right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* General button styling for filter right buttons and clear chat button */
+.filter_box_right button,
+.clear_chat_button {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: none;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    color: #fff;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    gap: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for both buttons */
+.filter_box_right button:hover,
+.clear_chat_button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Specific styling for the Clear Chat button */
+.clear_chat_button {
+    background-color: rgba(255, 69, 69, 0.3);
+    /* Subtle red tint */
+}
+
+.clear_chat_button:hover {
+    background-color: rgba(255, 69, 69, 0.5);
+}
+
+/* Modal overlay for filter_model */
+.filter_model {
+    position: fixed;
+    top: 15rem;
+    /* Adds margin from the top */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}

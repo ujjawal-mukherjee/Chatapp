@@ -1,0 +1,156 @@
+.Model {
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #111;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.Model_box {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.Model_box_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.Model_box_right h1 {
+    font-size: 2.5rem;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+    text-align: center;
+}
+
+.Model_box_right h1 span {
+    font-size: 3rem;
+    color: rgb(255, 149, 0);
+}
+
+.Model_box_right p {
+    font-size: 1rem;
+    color: #ccc;
+    margin: 0 0 1.5rem;
+    text-align: center;
+}
+
+.Model_box_right small {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: center;
+}
+
+.Model_box_right_name_info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 0.75rem 0;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.Model_box_right_name_info input[type="text"] {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.Model_box_right_name_info input[type="file"] {
+    flex: 1;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.5rem;
+    background-color: transparent;
+}
+
+.Model_box_right_name_info input[type="file"]::-webkit-file-upload-button {
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    padding: 0.5rem 1rem;
+    color: orangered;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.Model_box_right_name_info input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Model_box_right_name_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.Model_box_right_name_btn button {
+    width: 100%;
+    max-width: 200px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: none;
+    padding: 0.75rem;
+    color: orangered;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.Model_box_right_name_btn button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.Model_error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Model {
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    .Model_box {
+        padding: 1rem;
+    }
+
+    .Model_box_right h1 {
+        font-size: 2rem;
+    }
+
+    .Model_box_right h1 span {
+        font-size: 2.5rem;
+    }
+
+    .Model_box_right_name_info {
+        margin: 0.5rem 0;
+    }
+
+    .Model_box_right_name_btn button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
