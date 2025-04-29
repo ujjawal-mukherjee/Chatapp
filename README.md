@@ -57,11 +57,23 @@ frontend start
 cd frontend
 npm start
 Screenshots
-https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk1.jpg
-https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintal2.jpg
-https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk3.jpg
-https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk4.jpg
-https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk5.png
+## 📸 Screenshots
+
+### 🖼️ Login and Wallet Connect
+![chaintalk1](https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk1.jpg?raw=true)
+
+### 🗂️ Friend List
+![chaintalk2](https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintal2.jpg?raw=true)
+
+### 💬 Chat Interface
+![chaintalk3](https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk3.jpg?raw=true)
+
+### 📰 Post System
+![chaintalk4](https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk4.jpg?raw=true)
+
+### 📱 Modern UI
+![chaintalk5](https://github.com/ujjawal-mukherjee/Chatapp/blob/master/image/chaintalk5.png?raw=true)
+
 
 
 
