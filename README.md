@@ -4,39 +4,38 @@
 
 ---
 
-## 🚀 Features
+## 🚀 Key Features
 
-### 👤 Account Creation
-- Register using your **Ethereum wallet** (e.g., MetaMask).
-- No need for traditional login systems—your blockchain identity is your key.
+### 👛 Wallet-Based Account Creation
+- Sign up instantly using your **Ethereum wallet** (e.g., MetaMask).
+- Forget passwords—your wallet is your identity.
 
-### 🧑‍🤝‍🧑 Social Connection
-- View a list of all **registered users**.
-- Send **friend requests** and build your network.
-- Accept requests to become **friends** and unlock chat functionality.
+### 🌐 Social Networking
+- Discover and connect with **other blockchain users**.
+- Send & accept **friend requests** seamlessly.
+- Build a trusted **peer-to-peer** connection network.
 
-### 💬 Real-time Chat
-- Chat with friends through an **interactive, decentralized chat box**.
-- Messages are securely handled, promoting privacy and ownership.
+### 💬 Decentralized Real-Time Chat
+- Chat privately with friends—no server in the middle.
+- Fully interactive and **privacy-focused** chat experience.
 
-### 📸 Post & Like System
-- Post updates that your friends can **view and like**.
-- Your content is stored with **blockchain-backed integrity**.
+### 📸 Post, Like & Interact
+- Share your thoughts via **posts**, visible only to your friends.
+- Like posts to engage—**every action is backed by smart contracts**.
 
 ---
 
-## 🛠 Tech Stack
+## 🛠️ Tech Stack
 
-### 🔧 Frontend
-- **React.js** – Modern UI with reusable components.
-- **Ethers.js** – Interact with the Ethereum blockchain.
-- **Web3Modal / MetaMask** – Wallet integration for user authentication.
+### 🌐 Frontend
+- ⚛️ **React.js** – Responsive and dynamic UI.
+- 🔌 **Ethers.js** – Blockchain communication layer.
+- 🦊 **Web3Modal + MetaMask** – Wallet integration.
 
-### ⛓ Blockchain
-- **Solidity** – Smart contracts for user, post, and chat management.
-- **Hardhat** – Local blockchain development and testing environment.
-- **Ethereum / Polygon (optional)** – Deployment networks.
-
+### 🔗 Blockchain
+- 🧠 **Solidity** – Smart contracts for users, posts, and messaging.
+- 🔨 **Hardhat** – Ethereum development environment.
+- 🌍 **Ethereum / Polygon** – Optional deployment networks.
 ---
 
 ## 📦 Installation
