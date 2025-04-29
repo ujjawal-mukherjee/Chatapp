@@ -1,25 +1,25 @@
-# 🔗 ChatApp – A Decentralized Social Networking Platform
+🔗 ChatApp – A Decentralized Social Networking Platform
 
-**ChatApp** is a decentralized social media platform that empowers users to connect, communicate, and share without relying on centralized servers. Built on **blockchain technology**, it ensures data transparency, ownership, and security.
+ChatApp is a decentralized social media platform that empowers users to connect, communicate, and share without relying on centralized servers. Built on **blockchain technology**, it ensures data transparency, ownership, and security.
 
 ---
 
-## 🚀 Key Features
+ 🚀 Key Features
 
-### 👛 Wallet-Based Account Creation
-- Sign up instantly using your **Ethereum wallet** (e.g., MetaMask).
+👛 Wallet-Based Account Creation
+- Sign up instantly using your Ethereum wallet (e.g., MetaMask).
 - Forget passwords—your wallet is your identity.
 
-### 🌐 Social Networking
-- Discover and connect with **other blockchain users**.
+🌐 Social Networking
+- Discover and connect with other blockchain users.
 - Send & accept **friend requests** seamlessly.
 - Build a trusted **peer-to-peer** connection network.
 
-### 💬 Decentralized Real-Time Chat
+💬 Decentralized Real-Time Chat
 - Chat privately with friends—no server in the middle.
 - Fully interactive and **privacy-focused** chat experience.
 
-### 📸 Post, Like & Interact
+📸 Post, Like & Interact
 - Share your thoughts via **posts**, visible only to your friends.
 - Like posts to engage—**every action is backed by smart contracts**.
 
