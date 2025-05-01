@@ -58,7 +58,13 @@ cd frontend
 npm start
 Screenshots
 ## 📸 Screenshots
-See image folder in my master branch.
+
+
+![Upload 1](uploadfol/upload1.jpg)
+
+![Upload 10](uploadfol/upload10.jpg)
+
+![Upload Image 2](uploadfol/uploadimage2.jpg)
 
 
 
