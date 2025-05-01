@@ -1,0 +1,27 @@
+.post-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.post-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.post-card-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post-card-button:hover {
+    background-color: #0056b3;
+}

@@ -15,7 +15,7 @@ const Filter = () => {
                     <img src={images.search} alt="search icon" width={20} height={20} />
                     <input type="text" placeholder='search.....' />
                 </div>
-                <div className='filter_box_right'>
+                {/* <div className='filter_box_right'>
                     <button onClick={() => setShowAddFriendModal(true)}>
                         <img src={images.user} alt="user icon" width={20} height={20} />
                         ADD FRIEND
@@ -23,7 +23,7 @@ const Filter = () => {
                     <button className="clear_chat_button">
                         Clear Chat
                     </button>
-                </div>
+                </div>*/}
             </div>
             {/* Modal Component */}
             {showAddFriendModal && (

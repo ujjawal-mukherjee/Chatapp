@@ -1,0 +1,336 @@
+/* CreatePost.css */
+
+/* Container for the form */
+.Model {
+    width: 90%;
+    max-width: 1000px;
+    margin: 1.5rem auto;
+    background: linear-gradient(145deg, #111, #1a1a1a);
+    /* Subtle gradient for depth */
+    border-radius: 1rem;
+    /* Softer corners */
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 69, 0, 0.1);
+    /* Enhanced shadow with orange glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Model:hover {
+    transform: translateY(-5px);
+    /* Slight lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 69, 0, 0.15);
+}
+
+/* Inner layout */
+.Model_box {
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem;
+    /* More padding for spaciousness */
+}
+
+/* Form content */
+.Model_box_right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Title */
+.Model_box_right h1 {
+    font-size: 2.8rem;
+    /* Slightly larger for impact */
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 0 1.2rem;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth */
+}
+
+.Model_box_right h1 span {
+    font-size: 3.2rem;
+    color: orangered;
+    background: linear-gradient(90deg, orangered, orangered);
+    /* Gradient text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+.Model_box_right p {
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #ddd;
+    /* Brighter for readability */
+    margin: 0 0 2rem;
+    text-align: center;
+    max-width: 80%;
+    /* Constrain width for better flow */
+}
+
+/* Textarea styling */
+.Model_box_right_name_info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    /* More spacing */
+    background: rgba(0, 0, 0, 0.3);
+    /* Slightly darker for contrast */
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 69, 0, 0.2);
+    /* Subtle orange border */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Model_box_right_name_info:hover,
+.Model_box_right_name_info:focus-within {
+    border-color: orangered;
+    box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+    /* Glow on hover/focus */
+}
+
+.Model_box_right_textarea {
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.1rem;
+    /* Larger for readability */
+    padding: 0.75rem;
+    resize: vertical;
+    min-height: 120px;
+    /* Taller for better usability */
+    width: 100%;
+    font-family: inherit;
+    line-height: 1.5;
+    transition: color 0.3s ease;
+}
+
+.Model_box_right_textarea::placeholder {
+    color: #888;
+    /* Softer placeholder */
+    font-style: italic;
+}
+
+.Model_box_right_textarea:focus {
+    color: #f0f0f0;
+    /* Brighter text on focus */
+}
+
+/* File input styling */
+.Model_box_right_name_info input[type="file"] {
+    flex: 1;
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    background-color: transparent;
+}
+
+.Model_box_right_name_info input[type="file"]::-webkit-file-upload-button {
+    background: linear-gradient(90deg, orangered, #ff4500);
+    /* Gradient button */
+    border: none;
+    padding: 0.75rem 1.5rem;
+    color: #fff;
+    /* White text for contrast */
+    font-weight: 700;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Model_box_right_name_info input[type="file"]::-webkit-file-upload-button:hover {
+    transform: scale(1.05);
+    /* Slight scale on hover */
+    box-shadow: 0 4px 8px rgba(255, 69, 0, 0.4);
+}
+
+/* Submit button styling */
+.Model_box_right_name_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    /* More spacing */
+}
+
+.Model_box_right_name_btn button {
+    width: 100%;
+    max-width: 250px;
+    /* Wider button */
+    background: linear-gradient(90deg, orangered, #ff4500);
+    /* Gradient */
+    border: none;
+    padding: 1rem;
+    color: #fff;
+    /* White text */
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.Model_box_right_name_btn button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 69, 0, 0.4);
+    background: linear-gradient(90deg, #ff4500, orangered);
+    /* Reverse gradient on hover */
+}
+
+.Model_box_right_name_btn button:disabled {
+    background: rgba(0, 0, 0, 0.3);
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Loading animation for button */
+.Model_box_right_name_btn button:disabled::after {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Error message */
+.Model_error {
+    color: #ff5555;
+    /* Brighter red for visibility */
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    text-align: center;
+    background: rgba(255, 85, 85, 0.1);
+    /* Subtle background */
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 85, 85, 0.3);
+}
+
+.Model_box_left {
+    width: 40%;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 2rem;
+}
+
+.Model_box_left img {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Adjust form side */
+.Model_box_right {
+    width: 60%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .Model {
+        width: 95%;
+        margin: 1rem auto;
+        border-radius: 0.75rem;
+    }
+
+    .Model_box {
+        padding: 1.5rem;
+    }
+
+    .Model_box_right {
+        max-width: 90%;
+    }
+
+    .Model_box_right h1 {
+        font-size: 2.2rem;
+    }
+
+    .Model_box_right h1 span {
+        font-size: 2.7rem;
+    }
+
+    .Model_box_right p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+
+    .Model_box_right_name_info {
+        margin: 0.75rem 0;
+        padding: 0.75rem;
+    }
+
+    .Model_box_right_textarea {
+        min-height: 100px;
+        font-size: 1rem;
+    }
+
+    .Model_box_right_name_btn button {
+        max-width: 200px;
+        padding: 0.75rem;
+        font-size: 1.1rem;
+    }
+
+    .Model_error {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .Model_box {
+        padding: 1rem;
+    }
+
+    .Model_box_right h1 {
+        font-size: 1.8rem;
+    }
+
+    .Model_box_right h1 span {
+        font-size: 2.2rem;
+    }
+
+    .Model_box_right_name_info {
+        padding: 0.5rem;
+    }
+
+    .Model_box_right_textarea {
+        min-height: 80px;
+    }
+
+    .Model_box_right_name_btn button {
+        max-width: 180px;
+        font-size: 1rem;
+    }
+}

@@ -5,18 +5,18 @@ import { chatAppContext } from '../../../Context/ChatAppContext';
 import Model from '../Model/Model';
 import images from '../../assets';
 import ErrorMessage from '../ErrorMessage';
-
 const Navbar = () => {
     const menuItems = [
         { menu: "Home", path: "/" },
-        { menu: "About", path: "/about" },
-        { menu: "All Users", path: "/allusers" },
-        { menu: "CHATS", path: "/chats" },
-        { menu: "Pendingrequests", path: "/pendingrequest" },
+        { menu: "Add-Friends", path: "/allusers" },
+        { menu: "Requests", path: "/pendingrequest" },
+        { menu: "Messenger", path: "/chats" },
+        { menu: "Create Post", path: "/createpost" },
+        { menu: "Posts", path: "/totalpost" }
     ];
 
     const [openModel, setOpenModel] = useState(false);
-    const { account, userName, userImage, connectWallet, createAccount, error } = useContext(chatAppContext);
+    const { account, userName, userImage, connectWallet, createAccount, error, currentUserName, } = useContext(chatAppContext);
 
     return (
         <div className="Navbar">
@@ -44,7 +44,7 @@ const Navbar = () => {
 
                     {/* Connect Wallet / Account Info */}
                     <div className="Navbar_box_right_connect">
-                        {account === "" ? (
+                        {/*{account === "" ? (
                             <button onClick={connectWallet}>
                                 <span>Connect Wallet</span>
                             </button>
@@ -59,7 +59,35 @@ const Navbar = () => {
                                 />
                                 <small>{userName || "Create Account"}</small>
                             </button>
+                        )}*/}
+                        {!account ? (
+                            <button onClick={connectWallet}>
+                                <span>Connect Wallet</span>
+                            </button>
+                        ) : !currentUserName ? (
+                            <button onClick={() => setOpenModel(true)}>
+                                <img
+                                    src={images.create2}  // Placeholder image while creating account
+                                    alt="create"
+                                    width={20}
+                                    height={20}
+                                    style={{ borderRadius: '50%' }}
+                                />
+                                <small>Create Account</small>
+                            </button>
+                        ) : (
+                            <button>
+                                <img
+                                    src={images.accountName}  // You can update this to any new small icon
+                                    alt="user"
+                                    width={20}
+                                    height={20}
+                                    style={{ borderRadius: '50%' }}
+                                />
+                                <small>{currentUserName}</small>
+                            </button>
                         )}
+
                     </div>
                 </div>
             </div>

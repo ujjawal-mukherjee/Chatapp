@@ -2,7 +2,7 @@
 import React, { useState, useContext } from "react";
 import { chatAppContext } from "../../../Context/ChatAppContext";
 import './Model.css';
-
+import images from "../../assets/index";
 const Model = () => {
     const { createAccount } = useContext(chatAppContext);
     const [form, setForm] = useState({ name: "", physicalAddress: "" });
@@ -98,7 +98,7 @@ const Model = () => {
         }
     };
 
-    return (
+    return (/*
         <div className="Model">
             <div className="Model_box">
                 <div className="Model_box_right">
@@ -141,6 +141,55 @@ const Model = () => {
                 </div>
             </div>
         </div>
+        */
+        <div className="Model">
+            <div className="Model_box">
+                {/* Left Side Image */}
+                <div className="Model_box_left">
+                    <img src={images.hero} alt="login illustration" />
+                </div>
+
+                {/* Right Side Form */}
+                <div className="Model_box_right">
+                    <h1>
+                        Create Your <span>Account</span>
+                    </h1>
+                    <p>Fill in the details below to join the blockchain chat app.</p>
+                    <small>Ensure all fields are completed accurately.</small>
+
+                    <div className="Model_box_right_name_info">
+                        <input
+                            type="text"
+                            placeholder="Name"
+                            name="name"
+                            onChange={handleChange}
+                            value={form.name}
+                        />
+                    </div>
+                    <div className="Model_box_right_name_info">
+                        <input
+                            type="text"
+                            placeholder="Physical Address"
+                            name="physicalAddress"
+                            onChange={handleChange}
+                            value={form.physicalAddress}
+                        />
+                    </div>
+                    <div className="Model_box_right_name_info">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                        />
+                    </div>
+                    <div className="Model_box_right_name_btn">
+                        <button onClick={handleSubmit}>Create Account</button>
+                    </div>
+                    {error && <p className="Model_error">{error}</p>}
+                </div>
+            </div>
+        </div>
+
     );
 };
 

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.7.0 <0.9.0;
+pragma solidity ^0.8.28;
 
 contract ChatApp {
     struct Friend {
@@ -25,9 +25,27 @@ contract ChatApp {
         address accountAddress;
         string imageHash;
     }
-
+    /*
+    post section
+    */
+    struct Comment {
+        address commenter;
+        string commentText;
+        uint256 timestamp;
+    }
+    struct Post {
+        uint256 id;
+        address owner;
+        string content;
+        string imageHash; // optional: IPFS hash of image
+        uint256 timestamp;
+        address[] likes;
+        Comment[] comments;
+    }
+    uint256 private postIdCounter;
     mapping(address => User) private userList;
     mapping(bytes32 => Message[]) private allMessages;
+    mapping(address => Post[]) private userPosts;
     AllUsersStruct[] private getAllUsers;
 
     mapping(address => address[]) public pendingRequests; // requests received
@@ -187,5 +205,105 @@ contract ChatApp {
 
         _removeRequest(pendingRequests[msg.sender], from);
         _removeRequest(sentRequests[from], msg.sender);
+    }
+
+    /*post section*/
+    function createPost(
+        string calldata content,
+        string calldata imageHash
+    ) external userExists(msg.sender) {
+        Post memory newPost = Post({
+            id: postIdCounter++,
+            owner: msg.sender,
+            content: content,
+            imageHash: imageHash,
+            timestamp: block.timestamp,
+            likes: new address[](0),
+            comments: new Comment[](0)
+        });
+
+        userPosts[msg.sender].push(newPost);
+    }
+
+    //
+    function getFriendsPosts()
+        external
+        view
+        userExists(msg.sender)
+        returns (Post[] memory)
+    {
+        Friend[] memory friends = userList[msg.sender].friendList;
+        uint totalPosts;
+
+        for (uint i = 0; i < friends.length; i++) {
+            totalPosts += userPosts[friends[i].pubkey].length;
+        }
+
+        Post[] memory allFriendPosts = new Post[](totalPosts);
+        uint k = 0;
+
+        for (uint i = 0; i < friends.length; i++) {
+            Post[] memory posts = userPosts[friends[i].pubkey];
+            for (uint j = 0; j < posts.length; j++) {
+                allFriendPosts[k++] = posts[j];
+            }
+        }
+
+        return allFriendPosts;
+    }
+
+    //
+    function likePost(
+        address friend,
+        uint256 postId
+    ) external userExists(msg.sender) {
+        require(checkAlreadyFriends(msg.sender, friend), "Not friends");
+        Post[] storage posts = userPosts[friend];
+
+        for (uint i = 0; i < posts.length; i++) {
+            if (posts[i].id == postId) {
+                for (uint j = 0; j < posts[i].likes.length; j++) {
+                    require(posts[i].likes[j] != msg.sender, "Already liked");
+                }
+                posts[i].likes.push(msg.sender);
+                return;
+            }
+        }
+
+        revert("Post not found");
+    }
+
+    //
+    function commentOnPost(
+        address friend,
+        uint256 postId,
+        string calldata commentText
+    ) external userExists(msg.sender) {
+        require(checkAlreadyFriends(msg.sender, friend), "Not friends");
+        Post[] storage posts = userPosts[friend];
+
+        for (uint i = 0; i < posts.length; i++) {
+            if (posts[i].id == postId) {
+                Comment memory newComment = Comment({
+                    commenter: msg.sender,
+                    commentText: commentText,
+                    timestamp: block.timestamp
+                });
+                posts[i].comments.push(newComment);
+                return;
+            }
+        }
+
+        revert("Post not found");
+    }
+
+    //get posts
+    function getMyPosts()
+        external
+        view
+        userExists(msg.sender)
+        returns (Post[] memory)
+    {
+        return userPosts[msg.sender];
     }
 }

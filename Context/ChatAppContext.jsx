@@ -22,7 +22,8 @@ export const ChatAppProvider = ({ children }) => {
 
     const [currentUserName, setCurrentUserName] = useState("");
     const [currentUserAddress, setCurrentUserAddress] = useState("");
-
+    const [myPosts, setMyPosts] = useState([]);
+    const [friendsPosts, setFriendsPosts] = useState([]);
     const getProvider = () => {
         const provider = new ethers.BrowserProvider(window.ethereum);
         provider.resolveName = async () => null;
@@ -218,7 +219,157 @@ export const ChatAppProvider = ({ children }) => {
             setCurrentUserAddress(account);
         }
     }, [account]);
+    //post section
+    const createPost = async (content, imageHash) => {
+        try {
+            const provider = await getProvider();
+            const signer = await provider.getSigner();
+            const signerAddress = await signer.getAddress();
+            console.log("Creating post with address:", signerAddress);
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
 
+            const tx = await contract.createPost(content, imageHash);
+            setLoading(true);
+            console.log("Create post tx hash:", tx.hash);
+            await tx.wait();
+            setLoading(false);
+
+            await fetchMyPosts();
+        } catch (error) {
+            console.error("Error creating post:", error);
+            setError("Error in creating post: " + error.message);
+        }
+    };
+
+    // Fetch user's own posts
+    /*
+    const fetchMyPosts = async () => {
+        try {
+            const provider = await getProvider();
+            const signer = await provider.getSigner();
+            const signerAddress = await signer.getAddress();
+            console.log("Fetching posts for address:", signerAddress);
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, provider);
+            const posts = await contract.getMyPosts();
+            setMyPosts(posts);
+        } catch (error) {
+            console.error("Error fetching posts:", error);
+            setError("Error in fetching posts: " + error.message);
+        }
+    };
+    */
+    // Fetch friends' posts
+    /*
+    const fetchFriendsPosts = async () => {
+        try {
+            const provider = await getProvider();
+            const signer = await provider.getSigner();
+            const signerAddress = await signer.getAddress();
+            console.log("Fetching friends' posts for address:", signerAddress);
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
+
+            const isUserRegistered = await contract.checkUserExists(signerAddress);
+            console.log("Is user registered?", isUserRegistered);
+            if (!isUserRegistered) {
+                setError("User not registered. Please create an account.");
+                return;
+            }
+
+            const posts = await contract.getFriendsPosts();
+            setFriendsPosts(posts);
+        } catch (error) {
+            console.error("Error fetching friends' posts:", error);
+            setError("Error in fetching friends' posts: " + error.message);
+        }
+    };
+    */
+    const fetchMyPosts = async () => {
+        try {
+            const provider = await getProvider();
+            const signer = await provider.getSigner();
+            const signerAddress = await signer.getAddress();
+            console.log("Fetching my posts for address:", signerAddress);
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
+
+            // Check if user is registered
+            const isUserRegistered = await contract.checkUserExists(signerAddress);
+            console.log("Is user registered for my posts?", isUserRegistered);
+            if (!isUserRegistered) {
+                setError("User not registered. Please create an account.");
+                return;
+            }
+
+            const posts = await contract.getMyPosts();
+            console.log("My posts fetched:", posts);
+            setMyPosts(posts);
+        } catch (error) {
+            console.error("Error fetching my posts:", error);
+            setError("Error fetching my posts: " + error.message);
+        }
+    };
+
+    const fetchFriendsPosts = async () => {
+        try {
+            const provider = await getProvider();
+            const signer = await provider.getSigner();
+            const signerAddress = await signer.getAddress();
+            console.log("Fetching friends' posts for address:", signerAddress);
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
+
+            // Check if user is registered
+            const isUserRegistered = await contract.checkUserExists(signerAddress);
+            console.log("Is user registered for friends' posts?", isUserRegistered);
+            if (!isUserRegistered) {
+                setError("User not registered. Please create an account.");
+                return;
+            }
+
+            const posts = await contract.getFriendsPosts();
+            console.log("Friends' posts fetched:", posts);
+            setFriendsPosts(posts);
+        } catch (error) {
+            console.error("Error fetching friends' posts:", error);
+            setError("Error fetching friends' posts: " + error.message);
+        }
+    };
+
+    // Like a friend's post
+    const likePost = async (friendAddress, postId) => {
+        try {
+            const provider = getProvider();
+            const signer = await provider.getSigner();
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
+
+            const tx = await contract.likePost(friendAddress, postId);
+            setLoading(true);
+            await tx.wait();
+            setLoading(false);
+
+            await fetchFriendsPosts();
+        } catch (error) {
+            console.error("Error liking post:", error);
+            setError("Error in liking post");
+        }
+    };
+
+    // Comment on a friend's post
+    const commentOnPost = async (friendAddress, postId, commentText) => {
+        try {
+            const provider = getProvider();
+            const signer = await provider.getSigner();
+            const contract = new ethers.Contract(ChatAppAddress, ChatAppABI, signer);
+
+            const tx = await contract.commentOnPost(friendAddress, postId, commentText);
+            setLoading(true);
+            await tx.wait();
+            setLoading(false);
+
+            await fetchFriendsPosts();
+        } catch (error) {
+            console.error("Error commenting on post:", error);
+            setError("Error in commenting on post");
+        }
+    };
     return (
         <chatAppContext.Provider
             value={{
@@ -242,7 +393,14 @@ export const ChatAppProvider = ({ children }) => {
                 acceptFriendRequest,
                 sendMessage,
                 readUser,
-                rejectRequest
+                rejectRequest,
+                createPost,
+                fetchMyPosts,
+                fetchFriendsPosts,
+                likePost,
+                commentOnPost,
+                myPosts,
+                friendsPosts
             }}
         >
             {children}
