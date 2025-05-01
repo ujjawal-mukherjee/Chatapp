@@ -100,4 +100,5 @@ cd frontend
 
 npm start
 Return to the frontend directory and launch the application, which will run on http://localhost:3000 by default.
+
 Note:-You have to create you pinata account and add JWT.
